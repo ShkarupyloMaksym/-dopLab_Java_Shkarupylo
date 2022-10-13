@@ -1,0 +1,32 @@
+.dataBlock{
+    font-size: 20px;
+    border: 2px dashed black;
+    border-radius: 20px;
+    display: block;
+    max-width: 900px;
+    margin: 7px;
+    padding: 20px;
+}
+.solutionText{
+    text-align: right;
+
+}
+body{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.equation{
+    font-size: 25px;
+    font-style: inherit;
+}
+.saveToDB{
+    display: inherit;
+}
+
+.button{
+    font-size: 22px;
+    border-radius: 10px;
+    background-color: #eaffec;
+    border-style: double;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Equation type page</title>
+        <link rel="stylesheet" href="/styles/style.css">
+    </head>
+    <body>
+        <div>
+            <form action="/solve" method="post">
+                <input id = "POST-a11" type = "text" size="2" name="a11">
+                <label for="POST-a11">
+                    x<sup>2</sup> +
+                </label>
+                <input id = "POST-a22" type = "text" size="2" name="a22">
+                <label for="POST-a22">
+                    y<sup>2</sup> +
+                </label>
+                <input id = "POST-a33" type = "text" size="2" name="a33">
+                <label for="POST-a33">
+                    z<sup>2</sup> +
+                </label>
+                <input id = "POST-a12" type = "text" size="2" name="a12">
+                <label for="POST-a12">
+                    xy +
+                </label>
+                <input id = "POST-a13" type = "text" size="2" name="a13">
+                <label for="POST-a13">
+                    xz +
+                </label>
+                <input id = "POST-a23" type = "text" size="2" name="a23">
+                <label for="POST-a23">
+                    yz +
+                </label>
+                <input id = "POST-a1" type = "text" size="2" name="a1">
+                <label for="POST-a1">
+                    x +
+                </label>
+                <input id = "POST-a2" type = "text" size="2" name="a2">
+                <label for="POST-a2">
+                    y +
+                </label>
+                <input id = "POST-a3" type = "text" size="2" name="a3">
+                <label for="POST-a3">
+                    z +
+                </label>
+                <input id = "POST-a0" type = "text" size="2" name="a0">
+                <label for="POST-a0">
+                    = 0
+                </label>
+                <br><br>
+                    <input class="button" type="submit"  value="Порахувати">
+            </form>
+        </div>
+        <div th:text="${Error}"></div>
+    <hr>
+
+    <div class="dataBlock" th:each="el: ${DataEquatations}">
+        <div th:text="${el.getEquationInNormalView()}"></div>
+        <div class="solutionText" th:text="${el.getSolutionText()}"></div>
+
+    </div>
+
+    <form action="/FreeDataBase">
+        <input class="button" type="submit" value="Видалити усі дані">
+    </form>
+    </body>
+</html>

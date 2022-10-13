@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Solution</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+    <div class="equation"  th:text = "${EquationText}"></div>
+    <div th:text="${EquationInAType}"></div>
+    <hr>
+    <p th:text="${EquationCountI1}"></p>
+    <p th:text="${EquationCountI2}"></p>
+    <p th:text="${EquationCountI3}"></p>
+    <p th:text="${EquationCountK4}"></p>
+    <p th:text="${EquationCountK2}"></p>
+    <p th:text="${EquationCountK1}"></p>
+    <hr>
+    <div th:text="${SmallSolution}"></div>
+    <br>
+    <div>
+        <b>Тип поверхні:</b>
+    </div>
+    <div th:text="${typeOfSurface}"></div>
+    <br>
+    <form action="/solve/submitSolution" class="saveToDB">
+        <input class="button" type="submit" value="Зберегти до бази даних">
+    </form>
+    <br>
+    <img th:src="@{Images/table.jpg}" alt="Таблиця з деревом варіантів площин" height="844" src="../static/Images/table.jpg">
+
+
+</body>
+</html>
