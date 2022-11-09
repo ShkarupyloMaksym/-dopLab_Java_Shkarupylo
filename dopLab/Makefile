@@ -1,3 +1,6 @@
+name_container = shkarupylo_dop_lab_container
+name_db_container = shkarupylo_dop_lab_postgres-db
+
 run:
 	docker compose up
 
@@ -10,25 +13,25 @@ test_withoutDocker:
 	./gradlew test
 
 removeDB:
-	docker rm shkarupylo_dop_lab_postgres-db
+	docker rm $(name_db_container)
 
 removeLab:
-	docker rm shkarupylo_dop_lab_container
+	docker rm $(name_container)
 
 removeLabIMG:
 	docker rmi shkarupylo_dop_lab
 
 stopLab:
-	docker stop shkarupylo_dop_lab_container
+	docker stop $(name_container)
 
 stopDB:
-	docker stop shkarupylo_dop_lab_postgres-db
+	docker stop $(name_db_container)
 
 startDB:
-	docker start shkarupylo_dop_lab_postgres-db
+	docker start $(name_db_container)
 
 startLab:
-	docker start shkarupylo_dop_lab_container
+	docker start $(name_container)
 
 runAll:
 	make createIMG
@@ -47,3 +50,7 @@ Stop_removeAll:
 	make removeLab
 	make removeDB
 	make removeLabIMG
+
+refresh:
+	make stopLab
+	make startLab

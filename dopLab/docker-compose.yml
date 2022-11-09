@@ -3,16 +3,21 @@ version: '2'
 services:
   app:
     image: 'shkarupylo_dop_lab'
-    build:
-      context: ./app
+    build: .
+
     ports:
       - "8000:4213"
+
+    volumes:
+      - .:/app
 
     container_name: shkarupylo_dop_lab_container
     depends_on:
       - db
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
 
   db:
     image: 'postgres'
