@@ -12,9 +12,10 @@ import static com.example.smthing.controllers.equation.writer.WriterConstants.Eq
 import static com.example.smthing.controllers.equation.writer.WriterConstants.XYZinEquation;
 
 public class EquationWithWritingToPage {
-
+    //TODO можливі гонки при паралельній роботі
     private final String[] coefficientsString;
     private double[] coefficientsDouble;
+    //TODO не зрозуміло чи клас є частиною шару відображення чи бізнес логіки (для відобження забагато коду)
     private final Model pageModel;
 
     private boolean nullCheck() {

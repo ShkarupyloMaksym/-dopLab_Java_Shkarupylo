@@ -63,7 +63,7 @@ public class equationWithSolution {
                 equation.append(Double.parseDouble(coefficientsString[i + 1]) < 0 ? " " : " + ");
             }
         }
-        return String.valueOf(equation);
+        return equation.toString();
     }
 
     public String getSolutionText() {

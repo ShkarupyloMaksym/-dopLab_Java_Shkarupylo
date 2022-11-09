@@ -1,6 +1,7 @@
 package com.example.smthing.controllers.equation.solving.determinantCounter;
 
 public class Determinant {
+    //TODO не зрозуміло чому статичні методи було винесено в цей клас
 
     public static double countDeterminant(double[][] arrayForDetermination) {
         if (arrayForDetermination.length == 1) return arrayForDetermination[0][0];

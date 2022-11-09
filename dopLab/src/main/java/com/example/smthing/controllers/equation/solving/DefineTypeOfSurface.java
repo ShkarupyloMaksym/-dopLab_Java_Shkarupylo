@@ -6,6 +6,7 @@ import com.example.smthing.controllers.equation.solving.ClassificationSurfacesEn
 import com.example.smthing.controllers.equation.solving.EquationInit.Equation;
 
 public class DefineTypeOfSurface {
+    // TODO  незрозуміло чому це поле не приватне, аналогічно не зрозуміло для чого потрібні публічні поля у цьому класі
     Equation equationToDefine;
     public ClassificationOfSurfaces type;
     public StringBuilder explanation = new StringBuilder();
@@ -21,6 +22,9 @@ public class DefineTypeOfSurface {
         type = DefineType();
     }
 
+    //TODO не дуже зрозумілі імена методів,
+    // вся класифікація виконана як ланцюжок викликів, тому складно зрозуміти стейтмашину (знову ж вона не покрита тестами).
+    // Можливо варто винести стейтмашину на 1 рівень (наприклад якось зробити через світч)
     private ClassificationOfSurfaces DefineType() throws EquationIsNotASurfaceException {
         if (equationToDefine.countI3() == 0)
             return I3is0();
@@ -29,6 +33,8 @@ public class DefineTypeOfSurface {
     }
 
     private ClassificationOfSurfaces I3isNot0() throws EquationIsNotASurfaceException {
+        //TODO  пояснення формується у вигляді строки, тобто його буде складно аналізувати в коді після завершення обчислень
+        // (змішані рівні бізнес логіки та відображення)
         explanation.append("I3 не дорівнює 0 -> ");
         double I1 = equationToDefine.countI1();
         double I2 = equationToDefine.countI2();

@@ -19,6 +19,7 @@ public class SolveController {
     private final String solutionAttrName = "SolutionSave";
 
 
+    //TODO при конкурентному використанні пожлива гонка
     public SolveController(Table_equationWithSolution equationRepo) {
         this.equationRepo = equationRepo;
     }
@@ -29,12 +30,14 @@ public class SolveController {
         String[] aStr;
         String solution;
         aStr = new String[]{a11, a22, a33, a12, a13, a23, a1, a2, a3, a0};
-        DeterminantWriter.equationModel = model;
+        //DeterminantWriter.equationModel = model;
         try {
             EquationWithWritingToPage equation = new EquationWithWritingToPage(model, aStr);
             equation.FillEquation();
             solution = equation.AddAnswer();
         } catch (Exception e) {
+            // TODO виключення можуть виникати не лише по причині накоректно заданої площини
+            //  (також подивіться на https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc)
             model.addAttribute("Error", "Така площина неможлива");
             return "redirect:";
         }
