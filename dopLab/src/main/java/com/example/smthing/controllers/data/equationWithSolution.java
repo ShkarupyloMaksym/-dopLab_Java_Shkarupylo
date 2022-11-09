@@ -8,6 +8,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "equation_with_solution")
 public class equationWithSolution {
+    private static final String[] XYZinEquation = {"x²", "y²", "z²", "xy", "xz", "yz", "x", "y", "z", " = 0"};
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,22 +17,20 @@ public class equationWithSolution {
     private String equation_coefs;
     private String solution;
 
-    public String getEquationCoefs() {
-        return equation_coefs;
-    }
-
     public equationWithSolution() {
 
     }
 
-    public equationWithSolution(int id, double[] equation_coefs_d, String solution) {
-        this.id = id;
+    public String getEquationCoefs() {
+        return equation_coefs;
+    }
+
+    public equationWithSolution(double[] equation_coefs_d, String solution) {
         setEquation_coefs(equation_coefs_d);
         setSolution(solution);
     }
 
-    public equationWithSolution(int id, String[] equation_coefs_d, String solution) {
-        this.id = id;
+    public equationWithSolution(String[] equation_coefs_d, String solution) {
         setEquation_coefs(equation_coefs_d);
         setSolution(solution);
     }
@@ -54,7 +53,7 @@ public class equationWithSolution {
     }
 
     public String getEquationInNormalView() {
-        final String[] XYZinEquation = {"x²", "y²", "z²", "xy", "xz", "yz", "x", "y", "z", " = 0"};
+
         String[] coefficientsString = getEquationCoefs().split(", ");
         StringBuilder equation = new StringBuilder();
         for (int i = 0; i < coefficientsString.length; i++) {
