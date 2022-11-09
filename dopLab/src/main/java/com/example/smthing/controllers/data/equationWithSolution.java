@@ -5,10 +5,11 @@ import com.example.smthing.controllers.equation.solving.ClassificationSurfacesEn
 import javax.persistence.*;
 import java.util.Objects;
 
+import static com.example.smthing.controllers.equation.writer.WriterConstants.XYZinEquation;
+
 @Entity
 @Table(name = "equation_with_solution")
 public class equationWithSolution {
-    private static final String[] XYZinEquation = {"x²", "y²", "z²", "xy", "xz", "yz", "x", "y", "z", " = 0"};
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

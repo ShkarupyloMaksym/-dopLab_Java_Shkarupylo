@@ -8,13 +8,14 @@ import org.springframework.ui.Model;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class EquationWithWritingToPage {
-    final String[] XYZinEquation = {"x²", "y²", "z²", "xy", "xz", "yz", "x", "y", "z", " = 0"};
-    final String[] EquationCoeffsInAType = {"a11", "a22", "a33", "a12", "a13", "a23", "a1", "a2", "a3", "a0"};
+import static com.example.smthing.controllers.equation.writer.WriterConstants.EquationCoeffsInAType;
+import static com.example.smthing.controllers.equation.writer.WriterConstants.XYZinEquation;
 
-    String[] coefficientsString;
-    double[] coefficientsDouble;
-    Model pageModel;
+public class EquationWithWritingToPage {
+
+    private final String[] coefficientsString;
+    private double[] coefficientsDouble;
+    private final Model pageModel;
 
     private boolean nullCheck() {
         for (double number : coefficientsDouble)
