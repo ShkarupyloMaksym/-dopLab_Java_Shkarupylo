@@ -17,23 +17,23 @@ public class DefineTypeOfSurfaceTest {
     public void setDefineTypeOfSurface1() throws Exception {
         //Приклад 3
         defineTypeOfSurface1 = new DefineTypeOfSurface(new double[]
-                {5,2,5,-4,-2,-4,10,-4,-2,4});
+                {5,2,5,-4,-2,-4,10,-4,-2,4}, null);
     }
     @Before
     public void setDefineTypeOfSurface2() throws Exception {
         //Приклад 1
         defineTypeOfSurface2 = new DefineTypeOfSurface(new double[]
-                {1,5,1,2,6,2,-2,6,2,0});
+                {1,5,1,2,6,2,-2,6,2,0}, null);
     }
 
     @Test
-    public void checkType1(){
-        assertEquals(ClassificationOfSurfaces.EllipticalCylinder, defineTypeOfSurface1.type);
+    public void checkType1() throws EquationIsNotASurfaceException {
+        assertEquals(ClassificationOfSurfaces.EllipticalCylinder, defineTypeOfSurface1.getType());
     }
 
     @Test
-    public void checkType2(){
-        assertEquals(defineTypeOfSurface2.type, ClassificationOfSurfaces.OneSheetedHyperboloid);
+    public void checkType2() throws EquationIsNotASurfaceException {
+        assertEquals(defineTypeOfSurface2.getType(), ClassificationOfSurfaces.OneSheetedHyperboloid);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class DefineTypeOfSurfaceTest {
         String ExceptionText = null;
         try {
             defineTypeOfSurface3 = new DefineTypeOfSurface(new double[]
-                    {5,2,5,-4,-2,-4,10,-4,-2});
+                    {5,2,5,-4,-2,-4,10,-4,-2}, null);
         } catch (EquationNotEnoughCoefsException e) {
             //I don`t know how to check Equality of the Exceptions, so, my var:
             ExceptionText = e.toString();
