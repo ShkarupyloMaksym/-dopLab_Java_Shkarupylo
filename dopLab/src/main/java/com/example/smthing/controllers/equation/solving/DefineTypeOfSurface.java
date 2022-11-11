@@ -4,23 +4,23 @@ import com.example.smthing.controllers.equation.equationExceptions.EquationIsNot
 import com.example.smthing.controllers.equation.equationExceptions.EquationNotEnoughCoefsException;
 import com.example.smthing.controllers.equation.solving.ClassificationSurfacesEnum.ClassificationOfSurfaces;
 import com.example.smthing.controllers.equation.solving.EquationInit.Equation;
+import org.springframework.ui.Model;
 
 public class DefineTypeOfSurface {
-    // TODO  незрозуміло чому це поле не приватне, аналогічно не зрозуміло для чого потрібні публічні поля у цьому класі
-    Equation equationToDefine;
-    public ClassificationOfSurfaces type;
-    public StringBuilder explanation = new StringBuilder();
+    private final Equation equationToDefine;
+    private ClassificationOfSurfaces type;
+    private final StringBuilder explanation = new StringBuilder();
 
     private void checkEquationCoefsLength(double[] equationCoefs) throws EquationNotEnoughCoefsException {
         if (equationCoefs.length != 10)
             throw new EquationNotEnoughCoefsException();
     }
 
-    public DefineTypeOfSurface(double[] equationCoefs) throws EquationNotEnoughCoefsException, EquationIsNotASurfaceException {
+    public DefineTypeOfSurface(double[] equationCoefs, Model model) throws EquationNotEnoughCoefsException, EquationIsNotASurfaceException {
         checkEquationCoefsLength(equationCoefs);
-        equationToDefine = new Equation(equationCoefs);
-        type = DefineType();
+        equationToDefine = new Equation(equationCoefs, model);
     }
+
 
     //TODO не дуже зрозумілі імена методів,
     // вся класифікація виконана як ланцюжок викликів, тому складно зрозуміти стейтмашину (знову ж вона не покрита тестами).
@@ -30,6 +30,15 @@ public class DefineTypeOfSurface {
             return I3is0();
         return I3isNot0();
 
+    }
+
+    public ClassificationOfSurfaces getType() throws EquationIsNotASurfaceException {
+        if(type==null)
+            type = DefineType();
+        return type;
+    }
+    public String getExplanation(){
+        return explanation.toString();
     }
 
     private ClassificationOfSurfaces I3isNot0() throws EquationIsNotASurfaceException {

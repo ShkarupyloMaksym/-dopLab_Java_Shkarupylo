@@ -3,13 +3,14 @@ package com.example.smthing.controllers.equation.writer;
 import org.springframework.ui.Model;
 
 public class DeterminantWriter {
-    public static Model equationModel;
+    private final Model equationModel;
 
     private final String startMatrix = "\\(\\begin{vmatrix} ";
     private final String endMatrix = " \\end{vmatrix} \\)";
     double[][] Coefs4;
 
-    public DeterminantWriter(double[][] Coefs4) {
+    public DeterminantWriter(double[][] Coefs4, Model model) {
+        equationModel = model;
         this.Coefs4 = Coefs4;
     }
 

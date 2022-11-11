@@ -73,9 +73,9 @@ public class EquationWithWritingToPage {
     }
 
     public String AddAnswer() throws Exception {
-        DefineTypeOfSurface defineTypeOfSurface = new DefineTypeOfSurface(coefficientsDouble);
-        pageModel.addAttribute("typeOfSurface", defineTypeOfSurface.type.getUkrName());
-        pageModel.addAttribute("SmallSolution", defineTypeOfSurface.explanation);
-        return defineTypeOfSurface.type.name();
+        DefineTypeOfSurface defineTypeOfSurface = new DefineTypeOfSurface(coefficientsDouble, pageModel);
+        pageModel.addAttribute("typeOfSurface", defineTypeOfSurface.getType().getUkrName());
+        pageModel.addAttribute("SmallSolution", defineTypeOfSurface.getExplanation());
+        return defineTypeOfSurface.getType().name();
     }
 }

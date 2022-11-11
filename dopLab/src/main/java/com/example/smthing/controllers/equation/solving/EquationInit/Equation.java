@@ -2,6 +2,7 @@ package com.example.smthing.controllers.equation.solving.EquationInit;
 
 import com.example.smthing.controllers.equation.solving.determinantCounter.Determinant;
 import com.example.smthing.controllers.equation.writer.DeterminantWriter;
+import org.springframework.ui.Model;
 
 public class Equation {
     double[][] Coefs4 = new double[4][4];
@@ -9,7 +10,7 @@ public class Equation {
 
 
     /*equationCoefs is array: a11, a22, a33, 2*a12, 2*a13, 2*23, 2*a1, 2*a2, 2*a3, a0*/
-    public Equation(double[] equationCoefs) {
+    public Equation(double[] equationCoefs, Model model) {
 
         for (int i = 0; i < 3; i++)
             Coefs4[i][i] = equationCoefs[i];
@@ -25,7 +26,7 @@ public class Equation {
             for (int j = 0; j < i; j++)
                 Coefs4[i][j] = Coefs4[j][i];
 
-        determinantWriter = new DeterminantWriter(Coefs4);
+        determinantWriter = new DeterminantWriter(Coefs4, model);
     }
 
     public double countI1() {
