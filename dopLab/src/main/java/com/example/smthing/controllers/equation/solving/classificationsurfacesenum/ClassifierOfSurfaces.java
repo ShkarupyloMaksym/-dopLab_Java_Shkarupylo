@@ -1,6 +1,6 @@
 package com.example.smthing.controllers.equation.solving.classificationsurfacesenum;
 
-public enum ClassificationOfSurfaces {
+public enum ClassifierOfSurfaces {
     Ellipsoid("Еліпсоїд"),
     ImaginaryEllipsoid("Уявний еліпсоїд"),
     Dot("Точка"),
@@ -21,7 +21,7 @@ public enum ClassificationOfSurfaces {
 
     private final String ukrName;
 
-    ClassificationOfSurfaces(String ukrName) {
+    ClassifierOfSurfaces(String ukrName) {
         this.ukrName = ukrName;
     }
 

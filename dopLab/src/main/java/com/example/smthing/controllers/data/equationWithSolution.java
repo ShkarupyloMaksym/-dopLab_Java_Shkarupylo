@@ -1,6 +1,6 @@
 package com.example.smthing.controllers.data;
 
-import com.example.smthing.controllers.equation.solving.classificationsurfacesenum.ClassificationOfSurfaces;
+import com.example.smthing.controllers.equation.solving.classificationsurfacesenum.ClassifierOfSurfaces;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -67,7 +67,7 @@ public class equationWithSolution {
     }
 
     public String getSolutionText() {
-        return ClassificationOfSurfaces.valueOf(solution).getUkrName();
+        return ClassifierOfSurfaces.valueOf(solution).getUkrName();
     }
 
     public void setEquation_coefs(double[] coefsDoubleArr) {

@@ -2,13 +2,13 @@ package com.example.smthing.controllers.equation.solving;
 
 import com.example.smthing.controllers.equation.equationexceptions.EquationIsNotASurfaceException;
 import com.example.smthing.controllers.equation.equationexceptions.EquationNotEnoughCoefsException;
-import com.example.smthing.controllers.equation.solving.classificationsurfacesenum.ClassificationOfSurfaces;
+import com.example.smthing.controllers.equation.solving.classificationsurfacesenum.ClassifierOfSurfaces;
 import com.example.smthing.controllers.equation.solving.equationinit.Equation;
 import org.springframework.ui.Model;
 
-public class DefineTypeOfSurface {
+public class DefinerTypeOfSurface {
     private final Equation equationToDefine;
-    private ClassificationOfSurfaces type;
+    private ClassifierOfSurfaces type;
     private final StringBuilder explanation = new StringBuilder();
 
     private void checkEquationCoefsLength(double[] equationCoefs) throws EquationNotEnoughCoefsException {
@@ -16,7 +16,7 @@ public class DefineTypeOfSurface {
             throw new EquationNotEnoughCoefsException();
     }
 
-    public DefineTypeOfSurface(double[] equationCoefs, Model model) throws EquationNotEnoughCoefsException, EquationIsNotASurfaceException {
+    public DefinerTypeOfSurface(double[] equationCoefs, Model model) throws EquationNotEnoughCoefsException, EquationIsNotASurfaceException {
         checkEquationCoefsLength(equationCoefs);
         equationToDefine = new Equation(equationCoefs, model);
     }
@@ -25,14 +25,14 @@ public class DefineTypeOfSurface {
     //TODO не дуже зрозумілі імена методів,
     // вся класифікація виконана як ланцюжок викликів, тому складно зрозуміти стейтмашину (знову ж вона не покрита тестами).
     // Можливо варто винести стейтмашину на 1 рівень (наприклад якось зробити через світч)
-    private ClassificationOfSurfaces DefineType() throws EquationIsNotASurfaceException {
+    private ClassifierOfSurfaces DefineType() throws EquationIsNotASurfaceException {
         if (equationToDefine.countI3() == 0)
             return I3is0();
         return I3isNot0();
 
     }
 
-    public ClassificationOfSurfaces getType() throws EquationIsNotASurfaceException {
+    public ClassifierOfSurfaces getType() throws EquationIsNotASurfaceException {
         if(type==null)
             type = DefineType();
         return type;
@@ -41,7 +41,7 @@ public class DefineTypeOfSurface {
         return explanation.toString();
     }
 
-    private ClassificationOfSurfaces I3isNot0() throws EquationIsNotASurfaceException {
+    private ClassifierOfSurfaces I3isNot0() throws EquationIsNotASurfaceException {
         //TODO  пояснення формується у вигляді строки, тобто його буде складно аналізувати в коді після завершення обчислень
         // (змішані рівні бізнес логіки та відображення)
         explanation.append("I3 не дорівнює 0 -> ");
@@ -55,7 +55,7 @@ public class DefineTypeOfSurface {
         throw new EquationIsNotASurfaceException();
     }
 
-    private ClassificationOfSurfaces I1I3lessThan0_I3() {
+    private ClassifierOfSurfaces I1I3lessThan0_I3() {
         explanation.append("I1I3 ≤ 0, або I2 дорівнює 0 -> ");
         double K4 = equationToDefine.countK4();
         if (K4 > 0)
@@ -65,22 +65,22 @@ public class DefineTypeOfSurface {
         return K4is0_I1I3lessThan0_I3();
     }
 
-    private ClassificationOfSurfaces K4is0_I1I3lessThan0_I3() {
+    private ClassifierOfSurfaces K4is0_I1I3lessThan0_I3() {
         explanation.append("К4 дорівнює 0");
-        return ClassificationOfSurfaces.Cone;
+        return ClassifierOfSurfaces.Cone;
     }
 
-    private ClassificationOfSurfaces K4lessThan0_I1I3lessThan0_I3() {
+    private ClassifierOfSurfaces K4lessThan0_I1I3lessThan0_I3() {
         explanation.append("К4 менше 0");
-        return ClassificationOfSurfaces.TwoSheetedHyperboloid;
+        return ClassifierOfSurfaces.TwoSheetedHyperboloid;
     }
 
-    private ClassificationOfSurfaces K4biggerThan0_I1I3lessThan0_I3() {
+    private ClassifierOfSurfaces K4biggerThan0_I1I3lessThan0_I3() {
         explanation.append("К4 більше 0");
-        return ClassificationOfSurfaces.OneSheetedHyperboloid;
+        return ClassifierOfSurfaces.OneSheetedHyperboloid;
     }
 
-    private ClassificationOfSurfaces I1I3biggerThan0_I3() {
+    private ClassifierOfSurfaces I1I3biggerThan0_I3() {
         explanation.append("I1I3 > 0, та I2 > 0 -> ");
         double K4 = equationToDefine.countK4();
         if (K4 > 0)
@@ -90,46 +90,46 @@ public class DefineTypeOfSurface {
         return K4is0_I1I3biggerThan0_I3();
     }
 
-    private ClassificationOfSurfaces K4is0_I1I3biggerThan0_I3() {
+    private ClassifierOfSurfaces K4is0_I1I3biggerThan0_I3() {
         explanation.append("К4 дорівнює 0");
-        return ClassificationOfSurfaces.Dot;
+        return ClassifierOfSurfaces.Dot;
     }
 
-    private ClassificationOfSurfaces K4lessThan0_I1I3biggerThan0_I3() {
+    private ClassifierOfSurfaces K4lessThan0_I1I3biggerThan0_I3() {
         explanation.append("К4 менше 0");
-        return ClassificationOfSurfaces.ImaginaryEllipsoid;
+        return ClassifierOfSurfaces.ImaginaryEllipsoid;
     }
 
-    private ClassificationOfSurfaces K4biggerThan0_I1I3biggerThan0_I3() {
+    private ClassifierOfSurfaces K4biggerThan0_I1I3biggerThan0_I3() {
         explanation.append("К4 більше 0");
-        return ClassificationOfSurfaces.Ellipsoid;
+        return ClassifierOfSurfaces.Ellipsoid;
     }
 
-    private ClassificationOfSurfaces I3is0() throws EquationIsNotASurfaceException {
+    private ClassifierOfSurfaces I3is0() throws EquationIsNotASurfaceException {
         explanation.append("I3 дорівнює 0 -> ");
         if (equationToDefine.countK4() == 0)
             return K4is0_I3is0();
         return K4isNot0_I3is0();
     }
 
-    private ClassificationOfSurfaces K4isNot0_I3is0() {
+    private ClassifierOfSurfaces K4isNot0_I3is0() {
         explanation.append("К4 не дорівнює 0 -> ");
         if (equationToDefine.countK4() < 0)
             return K4LessThan0_I3is0();
         return K4biggerThan0_I3is0();
     }
 
-    private ClassificationOfSurfaces K4biggerThan0_I3is0() {
+    private ClassifierOfSurfaces K4biggerThan0_I3is0() {
         explanation.append("К4 більше 0");
-        return ClassificationOfSurfaces.HyperbolicParaboloid;
+        return ClassifierOfSurfaces.HyperbolicParaboloid;
     }
 
-    private ClassificationOfSurfaces K4LessThan0_I3is0() {
+    private ClassifierOfSurfaces K4LessThan0_I3is0() {
         explanation.append("К4 менше 0");
-        return ClassificationOfSurfaces.EllipticalParaboloid;
+        return ClassifierOfSurfaces.EllipticalParaboloid;
     }
 
-    private ClassificationOfSurfaces K4is0_I3is0() throws EquationIsNotASurfaceException {
+    private ClassifierOfSurfaces K4is0_I3is0() throws EquationIsNotASurfaceException {
         explanation.append("К4 рівне 0 -> ");
         double I2 = equationToDefine.countI2();
         if (I2 > 0)
@@ -139,19 +139,19 @@ public class DefineTypeOfSurface {
         return I2is0_I3is0();
     }
 
-    private ClassificationOfSurfaces I2is0_I3is0() {
+    private ClassifierOfSurfaces I2is0_I3is0() {
         explanation.append("I2 рівне 0 -> ");
         if (equationToDefine.countK2() == 0)
             return K2is0_I2is0_I3is0();
         return K2isNot0_I2is0_I3is0();
     }
 
-    private ClassificationOfSurfaces K2isNot0_I2is0_I3is0() {
+    private ClassifierOfSurfaces K2isNot0_I2is0_I3is0() {
         explanation.append("К2 не рівне 0");
-        return ClassificationOfSurfaces.ParabolicCylinder;
+        return ClassifierOfSurfaces.ParabolicCylinder;
     }
 
-    private ClassificationOfSurfaces K2is0_I2is0_I3is0() {
+    private ClassifierOfSurfaces K2is0_I2is0_I3is0() {
         explanation.append("К2 рівне 0 -> ");
         double K1 = equationToDefine.countK1();
         if (K1 < 0)
@@ -161,40 +161,40 @@ public class DefineTypeOfSurface {
         return K1is0_K2is0_I2is0_I3is0();
     }
 
-    private ClassificationOfSurfaces K1is0_K2is0_I2is0_I3is0() {
+    private ClassifierOfSurfaces K1is0_K2is0_I2is0_I3is0() {
         explanation.append("К1 рівне 0");
-        return ClassificationOfSurfaces.Plane;
+        return ClassifierOfSurfaces.Plane;
     }
 
 
-    private ClassificationOfSurfaces K1biggerThan0_K2is0_I2is0_I3is0() {
+    private ClassifierOfSurfaces K1biggerThan0_K2is0_I2is0_I3is0() {
         explanation.append("К1 більше 0");
-        return ClassificationOfSurfaces.PairOfImaginaryParallelPlanes;
+        return ClassifierOfSurfaces.PairOfImaginaryParallelPlanes;
     }
 
-    private ClassificationOfSurfaces K1LessThan0_K2is0_I2is0_I3is0() {
+    private ClassifierOfSurfaces K1LessThan0_K2is0_I2is0_I3is0() {
         explanation.append("К1 менше 0");
-        return ClassificationOfSurfaces.PairOfParallelPlanes;
+        return ClassifierOfSurfaces.PairOfParallelPlanes;
     }
 
-    private ClassificationOfSurfaces I2LessThan0_I3is0() {
+    private ClassifierOfSurfaces I2LessThan0_I3is0() {
         explanation.append("І2 менше 0 -> ");
         if (equationToDefine.countK2() == 0)
             return K2is0_I2LessThan0_I3is0();
         return K2isNot0_I2LessThan0_I3is0();
     }
 
-    private ClassificationOfSurfaces K2isNot0_I2LessThan0_I3is0() {
+    private ClassifierOfSurfaces K2isNot0_I2LessThan0_I3is0() {
         explanation.append("К2 не рівне 0");
-        return ClassificationOfSurfaces.HyperbolicCylinder;
+        return ClassifierOfSurfaces.HyperbolicCylinder;
     }
 
-    private ClassificationOfSurfaces K2is0_I2LessThan0_I3is0() {
+    private ClassifierOfSurfaces K2is0_I2LessThan0_I3is0() {
         explanation.append("І2 рівне 0");
-        return ClassificationOfSurfaces.APairOfIntersectingPlanes;
+        return ClassifierOfSurfaces.APairOfIntersectingPlanes;
     }
 
-    private ClassificationOfSurfaces I2BiggerThan0_I3is0() throws EquationIsNotASurfaceException {
+    private ClassifierOfSurfaces I2BiggerThan0_I3is0() throws EquationIsNotASurfaceException {
         explanation.append("І2 більше 0 -> ");
         double I1 = equationToDefine.countI1();
         double K2 = equationToDefine.countK2();
@@ -207,19 +207,19 @@ public class DefineTypeOfSurface {
         throw new EquationIsNotASurfaceException();
     }
 
-    private ClassificationOfSurfaces K2is0_I2BiggerThan0_I3is0() {
+    private ClassifierOfSurfaces K2is0_I2BiggerThan0_I3is0() {
         explanation.append("К2 рівне 0");
-        return ClassificationOfSurfaces.Line;
+        return ClassifierOfSurfaces.Line;
     }
 
-    private ClassificationOfSurfaces I1K2biggerThan0_I3is0() {
+    private ClassifierOfSurfaces I1K2biggerThan0_I3is0() {
         explanation.append("І1К2 більше 0");
-        return ClassificationOfSurfaces.ImaginaryEllipticalCylinder;
+        return ClassifierOfSurfaces.ImaginaryEllipticalCylinder;
     }
 
-    private ClassificationOfSurfaces I1K2lessThan0_I3is0() {
+    private ClassifierOfSurfaces I1K2lessThan0_I3is0() {
         explanation.append("І1К2 менше 0");
-        return ClassificationOfSurfaces.EllipticalCylinder;
+        return ClassifierOfSurfaces.EllipticalCylinder;
     }
 }
 

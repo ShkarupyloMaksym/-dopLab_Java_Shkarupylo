@@ -4,7 +4,7 @@ import com.example.smthing.controllers.equation.equationexceptions.EquationIsNot
 import com.example.smthing.controllers.equation.equationexceptions.EquationNotEnoughCoefsException;
 import com.example.smthing.controllers.equation.equationexceptions.EquationNotNumberException;
 import com.example.smthing.controllers.equation.equationexceptions.EquationNullException;
-import com.example.smthing.controllers.equation.solving.DefineTypeOfSurface;
+import com.example.smthing.controllers.equation.solving.DefinerTypeOfSurface;
 import org.springframework.ui.Model;
 
 import java.util.Arrays;
@@ -74,9 +74,9 @@ public class EquationWithWritingToPage {
     }
 
     public String AddAnswer() throws EquationIsNotASurfaceException, EquationNotEnoughCoefsException {
-        DefineTypeOfSurface defineTypeOfSurface = new DefineTypeOfSurface(coefficientsDouble, pageModel);
-        pageModel.addAttribute("typeOfSurface", defineTypeOfSurface.getType().getUkrName());
-        pageModel.addAttribute("SmallSolution", defineTypeOfSurface.getExplanation());
-        return defineTypeOfSurface.getType().name();
+        DefinerTypeOfSurface definerTypeOfSurface = new DefinerTypeOfSurface(coefficientsDouble, pageModel);
+        pageModel.addAttribute("typeOfSurface", definerTypeOfSurface.getType().getUkrName());
+        pageModel.addAttribute("SmallSolution", definerTypeOfSurface.getExplanation());
+        return definerTypeOfSurface.getType().name();
     }
 }

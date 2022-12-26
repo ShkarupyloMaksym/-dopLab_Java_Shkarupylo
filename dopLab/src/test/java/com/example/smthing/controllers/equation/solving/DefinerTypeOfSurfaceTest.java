@@ -2,45 +2,45 @@ package com.example.smthing.controllers.equation.solving;
 
 import com.example.smthing.controllers.equation.equationexceptions.EquationIsNotASurfaceException;
 import com.example.smthing.controllers.equation.equationexceptions.EquationNotEnoughCoefsException;
-import com.example.smthing.controllers.equation.solving.classificationsurfacesenum.ClassificationOfSurfaces;
+import com.example.smthing.controllers.equation.solving.classificationsurfacesenum.ClassifierOfSurfaces;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 
-public class DefineTypeOfSurfaceTest {
-    DefineTypeOfSurface defineTypeOfSurface1;
-    DefineTypeOfSurface defineTypeOfSurface2;
-    DefineTypeOfSurface defineTypeOfSurface3;
+public class DefinerTypeOfSurfaceTest {
+    DefinerTypeOfSurface definerTypeOfSurface1;
+    DefinerTypeOfSurface definerTypeOfSurface2;
+    DefinerTypeOfSurface definerTypeOfSurface3;
     @Before
     public void setDefineTypeOfSurface1() throws Exception {
         //Приклад 3
-        defineTypeOfSurface1 = new DefineTypeOfSurface(new double[]
+        definerTypeOfSurface1 = new DefinerTypeOfSurface(new double[]
                 {5,2,5,-4,-2,-4,10,-4,-2,4}, null);
     }
     @Before
     public void setDefineTypeOfSurface2() throws Exception {
         //Приклад 1
-        defineTypeOfSurface2 = new DefineTypeOfSurface(new double[]
+        definerTypeOfSurface2 = new DefinerTypeOfSurface(new double[]
                 {1,5,1,2,6,2,-2,6,2,0}, null);
     }
 
     @Test
     public void checkType1() throws EquationIsNotASurfaceException {
-        assertEquals(ClassificationOfSurfaces.EllipticalCylinder, defineTypeOfSurface1.getType());
+        assertEquals(ClassifierOfSurfaces.EllipticalCylinder, definerTypeOfSurface1.getType());
     }
 
     @Test
     public void checkType2() throws EquationIsNotASurfaceException {
-        assertEquals(defineTypeOfSurface2.getType(), ClassificationOfSurfaces.OneSheetedHyperboloid);
+        assertEquals(definerTypeOfSurface2.getType(), ClassifierOfSurfaces.OneSheetedHyperboloid);
     }
 
     @Test
     public void trySetNotRight_DefineTypeOfSurface(){
         String ExceptionText = null;
         try {
-            defineTypeOfSurface3 = new DefineTypeOfSurface(new double[]
+            definerTypeOfSurface3 = new DefinerTypeOfSurface(new double[]
                     {5,2,5,-4,-2,-4,10,-4,-2}, null);
         } catch (EquationNotEnoughCoefsException e) {
             //I don`t know how to check Equality of the Exceptions, so, my var:
