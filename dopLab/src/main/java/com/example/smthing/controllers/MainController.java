@@ -1,6 +1,6 @@
 package com.example.smthing.controllers;
 
-import com.example.smthing.controllers.data.Table_equationWithSolution;
+import com.example.smthing.controllers.data.ITable_equationWithSolution;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
-    private final Table_equationWithSolution equationRepo;
+    private final ITable_equationWithSolution equationRepo;
 
-    public MainController(Table_equationWithSolution equationRepo) {
+    public MainController(ITable_equationWithSolution equationRepo) {
         this.equationRepo = equationRepo;
     }
 

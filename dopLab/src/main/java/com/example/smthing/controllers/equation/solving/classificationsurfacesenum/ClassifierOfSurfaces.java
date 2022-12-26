@@ -1,23 +1,23 @@
 package com.example.smthing.controllers.equation.solving.classificationsurfacesenum;
 
 public enum ClassifierOfSurfaces {
-    Ellipsoid("Еліпсоїд"),
-    ImaginaryEllipsoid("Уявний еліпсоїд"),
-    Dot("Точка"),
-    OneSheetedHyperboloid("Однопорожнинний гіперболоїд"),
-    TwoSheetedHyperboloid("Двопорожнинний гіперболоїд"),
-    Cone("Конус"),
-    EllipticalParaboloid("Еліптичний параболоїд"),
-    HyperbolicParaboloid("Гіперболічний парабалоїд"),
-    EllipticalCylinder("Еліптичний циліндр"),
-    ImaginaryEllipticalCylinder("Уявний еліптичний циліндр"),
-    Line("Пряма"),
-    HyperbolicCylinder("Гіперболічний циліндр"),
-    APairOfIntersectingPlanes("Пара перетинаючихся площин"),
-    ParabolicCylinder("Параболічний циліндр"),
-    PairOfParallelPlanes("Пара паралельних площин"),
-    PairOfImaginaryParallelPlanes("Пара уявних паралельних площин"),
-    Plane("Площина");
+    ELLIPSOID("Еліпсоїд"),
+    IMAGINARY_ELLIPSOID("Уявний еліпсоїд"),
+    DOT("Точка"),
+    ONE_SHEETED_HYPERBOLOID("Однопорожнинний гіперболоїд"),
+    TWO_SHEETED_HYPERBOLOID("Двопорожнинний гіперболоїд"),
+    CONE("Конус"),
+    ELLIPTICAL_PARABOLOID("Еліптичний параболоїд"),
+    HYPERBOLIC_PARABOLOID("Гіперболічний парабалоїд"),
+    ELLIPTICAL_CYLINDER("Еліптичний циліндр"),
+    IMAGINARY_ELLIPTICAL_CYLINDER("Уявний еліптичний циліндр"),
+    LINE("Пряма"),
+    HYPERBOLIC_CYLINDER("Гіперболічний циліндр"),
+    A_PAIR_OF_INTERSECTING_PLANES("Пара перетинаючихся площин"),
+    PARABOLIC_CYLINDER("Параболічний циліндр"),
+    PAIR_OF_PARALLEL_PLANES("Пара паралельних площин"),
+    PAIR_OF_IMAGINARY_PARALLEL_PLANES("Пара уявних паралельних площин"),
+    PLANE("Площина");
 
     private final String ukrName;
 

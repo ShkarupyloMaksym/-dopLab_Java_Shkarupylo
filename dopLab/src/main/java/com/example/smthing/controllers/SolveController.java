@@ -1,6 +1,6 @@
 package com.example.smthing.controllers;
 
-import com.example.smthing.controllers.data.Table_equationWithSolution;
+import com.example.smthing.controllers.data.ITable_equationWithSolution;
 import com.example.smthing.controllers.data.equationWithSolution;
 import com.example.smthing.controllers.equation.EquationWithWritingToPage;
 import com.example.smthing.controllers.equation.equationexceptions.EquationIsNotASurfaceException;
@@ -15,12 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class SolveController {
-    private final Table_equationWithSolution equationRepo;
+    private final ITable_equationWithSolution equationRepo;
     private final String aStrAttrName = "aStrSave";
     private final String solutionAttrName = "SolutionSave";
 
 
-    public SolveController(Table_equationWithSolution equationRepo) {
+    public SolveController(ITable_equationWithSolution equationRepo) {
         this.equationRepo = equationRepo;
     }
 

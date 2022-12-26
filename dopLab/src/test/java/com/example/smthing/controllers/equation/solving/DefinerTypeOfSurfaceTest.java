@@ -28,12 +28,12 @@ public class DefinerTypeOfSurfaceTest {
 
     @Test
     public void checkType1() throws EquationIsNotASurfaceException {
-        assertEquals(ClassifierOfSurfaces.EllipticalCylinder, definerTypeOfSurface1.getType());
+        assertEquals(ClassifierOfSurfaces.ELLIPTICAL_CYLINDER, definerTypeOfSurface1.getType());
     }
 
     @Test
     public void checkType2() throws EquationIsNotASurfaceException {
-        assertEquals(definerTypeOfSurface2.getType(), ClassifierOfSurfaces.OneSheetedHyperboloid);
+        assertEquals(definerTypeOfSurface2.getType(), ClassifierOfSurfaces.ONE_SHEETED_HYPERBOLOID);
     }
 
     @Test

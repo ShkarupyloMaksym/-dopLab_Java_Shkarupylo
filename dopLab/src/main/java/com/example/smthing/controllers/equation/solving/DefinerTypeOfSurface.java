@@ -67,17 +67,17 @@ public class DefinerTypeOfSurface {
 
     private ClassifierOfSurfaces K4is0_I1I3lessThan0_I3() {
         explanation.append("К4 дорівнює 0");
-        return ClassifierOfSurfaces.Cone;
+        return ClassifierOfSurfaces.CONE;
     }
 
     private ClassifierOfSurfaces K4lessThan0_I1I3lessThan0_I3() {
         explanation.append("К4 менше 0");
-        return ClassifierOfSurfaces.TwoSheetedHyperboloid;
+        return ClassifierOfSurfaces.TWO_SHEETED_HYPERBOLOID;
     }
 
     private ClassifierOfSurfaces K4biggerThan0_I1I3lessThan0_I3() {
         explanation.append("К4 більше 0");
-        return ClassifierOfSurfaces.OneSheetedHyperboloid;
+        return ClassifierOfSurfaces.ONE_SHEETED_HYPERBOLOID;
     }
 
     private ClassifierOfSurfaces I1I3biggerThan0_I3() {
@@ -92,17 +92,17 @@ public class DefinerTypeOfSurface {
 
     private ClassifierOfSurfaces K4is0_I1I3biggerThan0_I3() {
         explanation.append("К4 дорівнює 0");
-        return ClassifierOfSurfaces.Dot;
+        return ClassifierOfSurfaces.DOT;
     }
 
     private ClassifierOfSurfaces K4lessThan0_I1I3biggerThan0_I3() {
         explanation.append("К4 менше 0");
-        return ClassifierOfSurfaces.ImaginaryEllipsoid;
+        return ClassifierOfSurfaces.IMAGINARY_ELLIPSOID;
     }
 
     private ClassifierOfSurfaces K4biggerThan0_I1I3biggerThan0_I3() {
         explanation.append("К4 більше 0");
-        return ClassifierOfSurfaces.Ellipsoid;
+        return ClassifierOfSurfaces.ELLIPSOID;
     }
 
     private ClassifierOfSurfaces I3is0() throws EquationIsNotASurfaceException {
@@ -121,12 +121,12 @@ public class DefinerTypeOfSurface {
 
     private ClassifierOfSurfaces K4biggerThan0_I3is0() {
         explanation.append("К4 більше 0");
-        return ClassifierOfSurfaces.HyperbolicParaboloid;
+        return ClassifierOfSurfaces.HYPERBOLIC_PARABOLOID;
     }
 
     private ClassifierOfSurfaces K4LessThan0_I3is0() {
         explanation.append("К4 менше 0");
-        return ClassifierOfSurfaces.EllipticalParaboloid;
+        return ClassifierOfSurfaces.ELLIPTICAL_PARABOLOID;
     }
 
     private ClassifierOfSurfaces K4is0_I3is0() throws EquationIsNotASurfaceException {
@@ -148,7 +148,7 @@ public class DefinerTypeOfSurface {
 
     private ClassifierOfSurfaces K2isNot0_I2is0_I3is0() {
         explanation.append("К2 не рівне 0");
-        return ClassifierOfSurfaces.ParabolicCylinder;
+        return ClassifierOfSurfaces.PARABOLIC_CYLINDER;
     }
 
     private ClassifierOfSurfaces K2is0_I2is0_I3is0() {
@@ -163,18 +163,18 @@ public class DefinerTypeOfSurface {
 
     private ClassifierOfSurfaces K1is0_K2is0_I2is0_I3is0() {
         explanation.append("К1 рівне 0");
-        return ClassifierOfSurfaces.Plane;
+        return ClassifierOfSurfaces.PLANE;
     }
 
 
     private ClassifierOfSurfaces K1biggerThan0_K2is0_I2is0_I3is0() {
         explanation.append("К1 більше 0");
-        return ClassifierOfSurfaces.PairOfImaginaryParallelPlanes;
+        return ClassifierOfSurfaces.PAIR_OF_IMAGINARY_PARALLEL_PLANES;
     }
 
     private ClassifierOfSurfaces K1LessThan0_K2is0_I2is0_I3is0() {
         explanation.append("К1 менше 0");
-        return ClassifierOfSurfaces.PairOfParallelPlanes;
+        return ClassifierOfSurfaces.PAIR_OF_PARALLEL_PLANES;
     }
 
     private ClassifierOfSurfaces I2LessThan0_I3is0() {
@@ -186,12 +186,12 @@ public class DefinerTypeOfSurface {
 
     private ClassifierOfSurfaces K2isNot0_I2LessThan0_I3is0() {
         explanation.append("К2 не рівне 0");
-        return ClassifierOfSurfaces.HyperbolicCylinder;
+        return ClassifierOfSurfaces.HYPERBOLIC_CYLINDER;
     }
 
     private ClassifierOfSurfaces K2is0_I2LessThan0_I3is0() {
         explanation.append("І2 рівне 0");
-        return ClassifierOfSurfaces.APairOfIntersectingPlanes;
+        return ClassifierOfSurfaces.A_PAIR_OF_INTERSECTING_PLANES;
     }
 
     private ClassifierOfSurfaces I2BiggerThan0_I3is0() throws EquationIsNotASurfaceException {
@@ -209,17 +209,17 @@ public class DefinerTypeOfSurface {
 
     private ClassifierOfSurfaces K2is0_I2BiggerThan0_I3is0() {
         explanation.append("К2 рівне 0");
-        return ClassifierOfSurfaces.Line;
+        return ClassifierOfSurfaces.LINE;
     }
 
     private ClassifierOfSurfaces I1K2biggerThan0_I3is0() {
         explanation.append("І1К2 більше 0");
-        return ClassifierOfSurfaces.ImaginaryEllipticalCylinder;
+        return ClassifierOfSurfaces.IMAGINARY_ELLIPTICAL_CYLINDER;
     }
 
     private ClassifierOfSurfaces I1K2lessThan0_I3is0() {
         explanation.append("І1К2 менше 0");
-        return ClassifierOfSurfaces.EllipticalCylinder;
+        return ClassifierOfSurfaces.ELLIPTICAL_CYLINDER;
     }
 }
 
