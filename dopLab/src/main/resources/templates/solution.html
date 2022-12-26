@@ -18,6 +18,7 @@
     <p th:text="${EquationCountK4}"></p>
     <p th:text="${EquationCountK2}"></p>
     <p th:text="${EquationCountK1}"></p>
+    <p th:text="${action}"></p>
     <hr>
     <div th:text="${SmallSolution}"></div>
     <br>
@@ -26,9 +27,9 @@
     </div>
     <div th:text="${typeOfSurface}"></div>
     <br>
-    <form action="/solve/submitSolution" class="saveToDB">
-        <input class="button" type="submit" value="Зберегти до бази даних">
-    </form>
+<!--    <form th:action="@{/solve/submitSolution(aStrSave=${aStrSave})}" class="saveToDB">-->
+    <a class="button" th:href="@{/solve/submitSolution(aStrSave=${aStrSave},SolutionSave=${SolutionSave})}" type="submit" value="Зберегти до бази даних">Зберегти до бази даних</a>
+<!--    </form>-->
     <br>
     <img th:src="@{Images/table.jpg}" alt="Таблиця з деревом варіантів площин" height="844" src="../static/Images/table.jpg">
 
