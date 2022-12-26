@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.example.smthing.controllers.equation.writer.WriterConstants.EquationCoeffsInAType;
-import static com.example.smthing.controllers.equation.writer.WriterConstants.XYZinEquation;
+import static com.example.smthing.controllers.equation.writer.WriterConstants.EQUATION_COEFFS_IN_A_TYPE;
+import static com.example.smthing.controllers.equation.writer.WriterConstants.XYZ_IN_EQUATION;
 
 public class EquationWithWritingToPage {
     private final String[] coefficientsString;
@@ -56,7 +56,7 @@ public class EquationWithWritingToPage {
     public void fillEquation() {
         StringBuilder equation = new StringBuilder();
         for (int i = 0; i < coefficientsString.length; i++) {
-            equation.append(Objects.equals(coefficientsString[i], "1") ? "" : coefficientsString[i]).append(XYZinEquation[i]);
+            equation.append(Objects.equals(coefficientsString[i], "1") ? "" : coefficientsString[i]).append(XYZ_IN_EQUATION[i]);
             if (i < coefficientsString.length - 1) {
                 equation.append(coefficientsDouble[i + 1] < 0 ? " " : " + ");
             }
@@ -66,8 +66,8 @@ public class EquationWithWritingToPage {
 
     private void fillEquationInAType() {
         StringBuilder equationInAType = new StringBuilder();
-        for (int i = 0; i < XYZinEquation.length; i++) {
-            equationInAType.append(EquationCoeffsInAType[i]).append(XYZinEquation[i]).append(i < XYZinEquation.length - 1 ? " + " : "");
+        for (int i = 0; i < XYZ_IN_EQUATION.length; i++) {
+            equationInAType.append(EQUATION_COEFFS_IN_A_TYPE[i]).append(XYZ_IN_EQUATION[i]).append(i < XYZ_IN_EQUATION.length - 1 ? " + " : "");
         }
 
         pageModel.addAttribute("EquationInAType", equationInAType);

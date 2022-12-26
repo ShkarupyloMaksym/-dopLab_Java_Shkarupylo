@@ -5,7 +5,7 @@ import com.example.smthing.controllers.equation.solving.classificationsurfacesen
 import javax.persistence.*;
 import java.util.Objects;
 
-import static com.example.smthing.controllers.equation.writer.WriterConstants.XYZinEquation;
+import static com.example.smthing.controllers.equation.writer.WriterConstants.XYZ_IN_EQUATION;
 
 @Entity
 @Table(name = "equation_with_solution")
@@ -58,7 +58,7 @@ public class equationWithSolution {
         String[] coefficientsString = getEquationCoefs().split(", ");
         StringBuilder equation = new StringBuilder();
         for (int i = 0; i < coefficientsString.length; i++) {
-            equation.append(Objects.equals(coefficientsString[i], "1") ? "" : coefficientsString[i]).append(XYZinEquation[i]);
+            equation.append(Objects.equals(coefficientsString[i], "1") ? "" : coefficientsString[i]).append(XYZ_IN_EQUATION[i]);
             if (i < coefficientsString.length - 1) {
                 equation.append(Double.parseDouble(coefficientsString[i + 1]) < 0 ? " " : " + ");
             }
