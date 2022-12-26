@@ -26,13 +26,13 @@ public class EquationWithWritingToPage {
         return true;
     }
 
-    private void MakeStringCoeffNotEmpty() {
+    private void makeStringCoeffNotEmpty() {
         for (int i = 0; i < coefficientsString.length; i++)
             if (coefficientsString[i].isEmpty())
                 coefficientsString[i] = "0";
     }
 
-    private void MakeDoubleCoeffsArray() throws EquationNotNumberException {
+    private void makeDoubleCoeffsArray() throws EquationNotNumberException {
         coefficientsDouble = new double[coefficientsString.length];
         for (int i = 0; i < coefficientsString.length; i++) {
             try {
@@ -47,13 +47,13 @@ public class EquationWithWritingToPage {
     public EquationWithWritingToPage(Model model, String[] coefficients) throws EquationNullException, EquationNotNumberException {
         pageModel = model;
         coefficientsString = Arrays.copyOf(coefficients, coefficients.length);
-        MakeStringCoeffNotEmpty();
-        MakeDoubleCoeffsArray();
+        makeStringCoeffNotEmpty();
+        makeDoubleCoeffsArray();
         if (nullCheck())
             throw new EquationNullException();
     }
 
-    public void FillEquation() {
+    public void fillEquation() {
         StringBuilder equation = new StringBuilder();
         for (int i = 0; i < coefficientsString.length; i++) {
             equation.append(Objects.equals(coefficientsString[i], "1") ? "" : coefficientsString[i]).append(XYZinEquation[i]);
@@ -64,7 +64,7 @@ public class EquationWithWritingToPage {
         pageModel.addAttribute("EquationText", equation);
     }
 
-    private void FillEquationInAType() {
+    private void fillEquationInAType() {
         StringBuilder equationInAType = new StringBuilder();
         for (int i = 0; i < XYZinEquation.length; i++) {
             equationInAType.append(EquationCoeffsInAType[i]).append(XYZinEquation[i]).append(i < XYZinEquation.length - 1 ? " + " : "");
@@ -73,7 +73,7 @@ public class EquationWithWritingToPage {
         pageModel.addAttribute("EquationInAType", equationInAType);
     }
 
-    public String AddAnswer() throws EquationIsNotASurfaceException, EquationNotEnoughCoefsException {
+    public String addAnswer() throws EquationIsNotASurfaceException, EquationNotEnoughCoefsException {
         DefinerTypeOfSurface definerTypeOfSurface = new DefinerTypeOfSurface(coefficientsDouble, pageModel);
         pageModel.addAttribute("typeOfSurface", definerTypeOfSurface.getType().getUkrName());
         pageModel.addAttribute("SmallSolution", definerTypeOfSurface.getExplanation());

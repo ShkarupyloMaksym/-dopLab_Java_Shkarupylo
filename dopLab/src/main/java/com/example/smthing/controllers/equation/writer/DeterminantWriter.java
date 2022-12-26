@@ -14,7 +14,7 @@ public class DeterminantWriter {
         this.Coefs4 = Coefs4;
     }
 
-    public void Write_countI1(double result) {
+    public void writeCountI1(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("I1 = ");
             for (int i = 0; i < 3; i++)
@@ -26,7 +26,7 @@ public class DeterminantWriter {
     }
 
 
-    public void Write_countI2(double result) {
+    public void writeCountI2(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("I2 = ");
             stringBuilder.append(startMatrix);
@@ -45,7 +45,7 @@ public class DeterminantWriter {
         }
     }
 
-    public void Write_countI3(double result) {
+    public void writeCountI3(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("I3 = ");
             stringBuilder.append(startMatrix);
@@ -63,7 +63,7 @@ public class DeterminantWriter {
 
     }
 
-    public void Write_countK4(double result) {
+    public void writeCountK4(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("K4 = ");
             stringBuilder.append(startMatrix);
@@ -80,7 +80,7 @@ public class DeterminantWriter {
         }
     }
 
-    public void Write_countK2(double result) {
+    public void writeCountK2(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("K2 = ");
             for (int i = 0; i < 3; i++) {
@@ -105,7 +105,7 @@ public class DeterminantWriter {
         }
     }
 
-    public void Write_countK1(double result) {
+    public void writeCountK1(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("K1 = ");
             for (int i = 0; i < 3; i++) {

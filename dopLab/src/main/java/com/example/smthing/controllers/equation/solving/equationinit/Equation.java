@@ -31,7 +31,7 @@ public class Equation {
 
     public double countI1() {
         double sum = Coefs4[0][0] + Coefs4[1][1] + Coefs4[2][2];
-        determinantWriter.Write_countI1(sum);
+        determinantWriter.writeCountI1(sum);
         return sum;
     }
 
@@ -40,19 +40,19 @@ public class Equation {
         double sum = 0;
         for (int i = 0; i < 3; i++)
             sum += Determinant.countDeterminant(Determinant.cutArray(Coefs3, i, i));
-        determinantWriter.Write_countI2(sum);
+        determinantWriter.writeCountI2(sum);
         return sum;
     }
 
     public double countI3() {
         double sum = Determinant.countDeterminant(Determinant.cutArray(Coefs4, 3, 3));
-        determinantWriter.Write_countI3(sum);
+        determinantWriter.writeCountI3(sum);
         return sum;
     }
 
     public double countK4() {
         double sum = Determinant.countDeterminant(Coefs4);
-        determinantWriter.Write_countK4(sum);
+        determinantWriter.writeCountK4(sum);
         return sum;
     }
 
@@ -61,7 +61,7 @@ public class Equation {
         for (int i = 0; i < 3; i++) {
             sum += Determinant.countDeterminant(Determinant.cutArray(Coefs4, i, i));
         }
-        determinantWriter.Write_countK2(sum);
+        determinantWriter.writeCountK2(sum);
         return sum;
     }
 
@@ -72,7 +72,7 @@ public class Equation {
         sum += Determinant.countDeterminant(Determinant.cutArray(dopArrWithout11, 0, 0));//3 and 4
         double[][] dopArrWithout00 = Determinant.cutArray(Coefs4, 0, 0);//2,3,4
         sum += Determinant.countDeterminant(Determinant.cutArray(dopArrWithout00, 1, 1));//2 and 4
-        determinantWriter.Write_countK1(sum);
+        determinantWriter.writeCountK1(sum);
         return sum;
     }
 

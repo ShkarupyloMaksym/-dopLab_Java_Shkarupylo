@@ -25,7 +25,7 @@ public class DefinerTypeOfSurface {
     //TODO не дуже зрозумілі імена методів,
     // вся класифікація виконана як ланцюжок викликів, тому складно зрозуміти стейтмашину (знову ж вона не покрита тестами).
     // Можливо варто винести стейтмашину на 1 рівень (наприклад якось зробити через світч)
-    private ClassifierOfSurfaces DefineType() throws EquationIsNotASurfaceException {
+    private ClassifierOfSurfaces defineType() throws EquationIsNotASurfaceException {
         if (equationToDefine.countI3() == 0)
             return I3is0();
         return I3isNot0();
@@ -34,7 +34,7 @@ public class DefinerTypeOfSurface {
 
     public ClassifierOfSurfaces getType() throws EquationIsNotASurfaceException {
         if(type==null)
-            type = DefineType();
+            type = defineType();
         return type;
     }
     public String getExplanation(){
