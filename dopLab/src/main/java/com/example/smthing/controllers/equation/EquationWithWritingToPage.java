@@ -1,5 +1,7 @@
 package com.example.smthing.controllers.equation;
 
+import com.example.smthing.controllers.equation.equationExceptions.EquationIsNotASurfaceException;
+import com.example.smthing.controllers.equation.equationExceptions.EquationNotEnoughCoefsException;
 import com.example.smthing.controllers.equation.equationExceptions.EquationNotNumberException;
 import com.example.smthing.controllers.equation.equationExceptions.EquationNullException;
 import com.example.smthing.controllers.equation.solving.DefineTypeOfSurface;
@@ -12,7 +14,6 @@ import static com.example.smthing.controllers.equation.writer.WriterConstants.Eq
 import static com.example.smthing.controllers.equation.writer.WriterConstants.XYZinEquation;
 
 public class EquationWithWritingToPage {
-    //TODO можливі гонки при паралельній роботі
     private final String[] coefficientsString;
     private double[] coefficientsDouble;
     //TODO не зрозуміло чи клас є частиною шару відображення чи бізнес логіки (для відобження забагато коду)
@@ -72,7 +73,7 @@ public class EquationWithWritingToPage {
         pageModel.addAttribute("EquationInAType", equationInAType);
     }
 
-    public String AddAnswer() throws Exception {
+    public String AddAnswer() throws EquationIsNotASurfaceException, EquationNotEnoughCoefsException {
         DefineTypeOfSurface defineTypeOfSurface = new DefineTypeOfSurface(coefficientsDouble, pageModel);
         pageModel.addAttribute("typeOfSurface", defineTypeOfSurface.getType().getUkrName());
         pageModel.addAttribute("SmallSolution", defineTypeOfSurface.getExplanation());
