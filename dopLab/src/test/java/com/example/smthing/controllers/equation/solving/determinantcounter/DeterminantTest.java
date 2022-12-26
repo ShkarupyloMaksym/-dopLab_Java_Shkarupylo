@@ -1,4 +1,4 @@
-package com.example.smthing.controllers.equation.solving.determinantCounter;
+package com.example.smthing.controllers.equation.solving.determinantcounter;
 
 import org.junit.Before;
 import org.junit.Test;

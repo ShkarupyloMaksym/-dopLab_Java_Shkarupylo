@@ -1,8 +1,8 @@
 package com.example.smthing.controllers.equation.solving;
 
-import com.example.smthing.controllers.equation.equationExceptions.EquationIsNotASurfaceException;
-import com.example.smthing.controllers.equation.equationExceptions.EquationNotEnoughCoefsException;
-import com.example.smthing.controllers.equation.solving.ClassificationSurfacesEnum.ClassificationOfSurfaces;
+import com.example.smthing.controllers.equation.equationexceptions.EquationIsNotASurfaceException;
+import com.example.smthing.controllers.equation.equationexceptions.EquationNotEnoughCoefsException;
+import com.example.smthing.controllers.equation.solving.classificationsurfacesenum.ClassificationOfSurfaces;
 import org.junit.Before;
 import org.junit.Test;
 

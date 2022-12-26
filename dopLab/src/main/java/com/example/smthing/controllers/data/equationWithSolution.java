@@ -1,6 +1,6 @@
 package com.example.smthing.controllers.data;
 
-import com.example.smthing.controllers.equation.solving.ClassificationSurfacesEnum.ClassificationOfSurfaces;
+import com.example.smthing.controllers.equation.solving.classificationsurfacesenum.ClassificationOfSurfaces;
 
 import javax.persistence.*;
 import java.util.Objects;

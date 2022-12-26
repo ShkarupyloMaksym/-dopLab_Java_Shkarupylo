@@ -1,4 +1,4 @@
-package com.example.smthing.controllers.equation.solving.EquationInit;
+package com.example.smthing.controllers.equation.solving.equationinit;
 
 import org.junit.Before;
 import org.junit.Test;

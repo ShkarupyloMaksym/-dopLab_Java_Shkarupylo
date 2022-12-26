@@ -1,4 +1,4 @@
-package com.example.smthing.controllers.equation.equationExceptions;
+package com.example.smthing.controllers.equation.equationexceptions;
 
 public class EquationNotEnoughCoefsException extends Exception {
     @Override

@@ -1,4 +1,4 @@
-package com.example.smthing.controllers.equation.solving.determinantCounter;
+package com.example.smthing.controllers.equation.solving.determinantcounter;
 
 public class Determinant {
     //TODO не зрозуміло чому статичні методи було винесено в цей клас

@@ -1,4 +1,4 @@
-package com.example.smthing.controllers.equation.equationExceptions;
+package com.example.smthing.controllers.equation.equationexceptions;
 
 public class EquationNotNumberException extends Exception {
     @Override
