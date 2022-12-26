@@ -7,23 +7,23 @@ import static org.junit.Assert.assertEquals;
 public class ClassifierOfSurfacesTest {
     @Test
     public void checkName1(){
-        assertEquals(ClassifierOfSurfaces.Cone.getUkrName(), "Конус");
+        assertEquals(ClassifierOfSurfaces.CONE.getUkrName(), "Конус");
     }
     @Test
     public void checkName2(){
-        assertEquals(ClassifierOfSurfaces.Dot.getUkrName(), "Точка");
+        assertEquals(ClassifierOfSurfaces.DOT.getUkrName(), "Точка");
     }
     @Test
     public void checkName3(){
-        assertEquals(ClassifierOfSurfaces.APairOfIntersectingPlanes.getUkrName(), "Пара перетинаючихся площин");
+        assertEquals(ClassifierOfSurfaces.A_PAIR_OF_INTERSECTING_PLANES.getUkrName(), "Пара перетинаючихся площин");
     }
     @Test
     public void checkName4(){
-        assertEquals(ClassifierOfSurfaces.EllipticalParaboloid.getUkrName(), "Еліптичний параболоїд");
+        assertEquals(ClassifierOfSurfaces.ELLIPTICAL_PARABOLOID.getUkrName(), "Еліптичний параболоїд");
     }
     @Test
     public void checkName5(){
-        assertEquals(ClassifierOfSurfaces.ImaginaryEllipsoid.getUkrName(), "Уявний еліпсоїд");
+        assertEquals(ClassifierOfSurfaces.IMAGINARY_ELLIPSOID.getUkrName(), "Уявний еліпсоїд");
     }
 
 }
