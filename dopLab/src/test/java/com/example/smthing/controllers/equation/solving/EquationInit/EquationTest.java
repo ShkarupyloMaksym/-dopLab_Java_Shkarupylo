@@ -12,13 +12,13 @@ public class EquationTest {
     public void setDefineTypeOfSurface1() throws Exception {
         //Приклад 3
         equation1 = new Equation(new double[]
-                {5,2,5,-4,-2,-4,10,-4,-2,4});
+                {5,2,5,-4,-2,-4,10,-4,-2,4},null);
     }
     @Before
     public void setDefineTypeOfSurface2() throws Exception {
         //Приклад 1
         equation2 = new Equation(new double[]
-                {1,5,1,2,6,2,-2,6,2,0});
+                {1,5,1,2,6,2,-2,6,2,0}, null);
     }
 
     @Test
