@@ -33,8 +33,6 @@ public class SolveController {
         EquationWithWritingToPage equation = new EquationWithWritingToPage(model, aStr);
         equation.fillEquation();
         solution = equation.addAnswer();
-        // TODO виключення можуть виникати не лише по причині накоректно заданої площини
-        //  (також подивіться на https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc)
 
         ModelAndView modelAndView = new ModelAndView("solution");
         modelAndView.addObject(aStrAttrName, aStr);
