@@ -26,10 +26,10 @@ public class SolveController {
 
 
     @RequestMapping(value = "/solve", method = RequestMethod.POST)
-    public ModelAndView getInput(Model model, String a11, String a22, String a33, String a12, String a13, String a23, String a1, String a2, String a3, String a0) throws EquationIsNotASurfaceException, EquationNotNumberException, EquationNotEnoughCoefsException, EquationNullException {
+    public ModelAndView getInput(Model model, FormEquationParams formEquationParams) throws EquationIsNotASurfaceException, EquationNotNumberException, EquationNotEnoughCoefsException, EquationNullException {
         String[] aStr;
         String solution;
-        aStr = new String[]{a11, a22, a33, a12, a13, a23, a1, a2, a3, a0};
+        aStr = formEquationParams.getaStr();
         EquationWithWritingToPage equation = new EquationWithWritingToPage(model, aStr);
         equation.fillEquation();
         solution = equation.addAnswer();
@@ -37,7 +37,6 @@ public class SolveController {
         ModelAndView modelAndView = new ModelAndView("solution");
         modelAndView.addObject(aStrAttrName, aStr);
         modelAndView.addObject(solutionAttrName, solution);
-        modelAndView.addObject("action", "/solve/submitSolution");
         return modelAndView;
     }
 
