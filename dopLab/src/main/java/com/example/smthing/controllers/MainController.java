@@ -22,7 +22,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/FreeDataBase")
-    public String deleteAllData(Model model) {
+    public String deleteAllData() {
 
         equationRepo.deleteAll();
 
