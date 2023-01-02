@@ -1,7 +1,7 @@
-package com.example.smthing.controllers.equation.solving.equationinit;
+package com.example.smthing.equation.solving.equationinit;
 
-import com.example.smthing.controllers.equation.solving.determinantcounter.Determinant;
-import com.example.smthing.controllers.equation.writer.DeterminantWriter;
+import com.example.smthing.equation.solving.determinantcounter.Determinant;
+import com.example.smthing.equation.writer.DeterminantWriter;
 import org.springframework.ui.Model;
 
 public class Equation {

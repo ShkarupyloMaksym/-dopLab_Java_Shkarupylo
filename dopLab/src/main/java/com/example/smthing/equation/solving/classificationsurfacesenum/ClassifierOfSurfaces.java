@@ -1,4 +1,4 @@
-package com.example.smthing.controllers.equation.solving.classificationsurfacesenum;
+package com.example.smthing.equation.solving.classificationsurfacesenum;
 
 public enum ClassifierOfSurfaces {
     ELLIPSOID("Еліпсоїд"),

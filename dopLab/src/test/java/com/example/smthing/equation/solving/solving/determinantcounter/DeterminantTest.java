@@ -1,5 +1,6 @@
-package com.example.smthing.controllers.equation.solving.determinantcounter;
+package com.example.smthing.equation.solving.solving.determinantcounter;
 
+import com.example.smthing.equation.solving.determinantcounter.Determinant;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.smthing.controllers.equation.writer;
+package com.example.smthing.equation.writer;
 
 import org.springframework.ui.Model;
 

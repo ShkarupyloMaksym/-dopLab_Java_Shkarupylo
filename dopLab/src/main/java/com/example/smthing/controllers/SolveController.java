@@ -1,12 +1,12 @@
 package com.example.smthing.controllers;
 
-import com.example.smthing.controllers.data.ITable_equationWithSolution;
-import com.example.smthing.controllers.data.equationWithSolution;
-import com.example.smthing.controllers.equation.EquationWithWritingToPage;
-import com.example.smthing.controllers.equation.equationexceptions.EquationIsNotASurfaceException;
-import com.example.smthing.controllers.equation.equationexceptions.EquationNotEnoughCoefsException;
-import com.example.smthing.controllers.equation.equationexceptions.EquationNotNumberException;
-import com.example.smthing.controllers.equation.equationexceptions.EquationNullException;
+import com.example.smthing.data.ITable_equationWithSolution;
+import com.example.smthing.data.equationWithSolution;
+import com.example.smthing.equation.EquationWithWritingToPage;
+import com.example.smthing.equation.equationexceptions.EquationIsNotASurfaceException;
+import com.example.smthing.equation.equationexceptions.EquationNotEnoughCoefsException;
+import com.example.smthing.equation.equationexceptions.EquationNotNumberException;
+import com.example.smthing.equation.equationexceptions.EquationNullException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

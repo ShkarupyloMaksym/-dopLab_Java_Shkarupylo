@@ -1,11 +1,11 @@
-package com.example.smthing.controllers.data;
+package com.example.smthing.data;
 
-import com.example.smthing.controllers.equation.solving.classificationsurfacesenum.ClassifierOfSurfaces;
+import com.example.smthing.equation.solving.classificationsurfacesenum.ClassifierOfSurfaces;
 
 import javax.persistence.*;
 import java.util.Objects;
 
-import static com.example.smthing.controllers.equation.writer.WriterConstants.XYZ_IN_EQUATION;
+import static com.example.smthing.equation.writer.WriterConstants.XYZ_IN_EQUATION;
 
 @Entity
 @Table(name = "equation_with_solution")

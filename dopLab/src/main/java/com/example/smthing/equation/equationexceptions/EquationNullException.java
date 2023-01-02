@@ -1,4 +1,4 @@
-package com.example.smthing.controllers.equation.equationexceptions;
+package com.example.smthing.equation.equationexceptions;
 
 public class EquationNullException extends Exception {
     @Override

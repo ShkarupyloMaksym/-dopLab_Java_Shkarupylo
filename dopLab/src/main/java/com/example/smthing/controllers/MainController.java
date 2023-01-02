@@ -1,6 +1,6 @@
 package com.example.smthing.controllers;
 
-import com.example.smthing.controllers.data.ITable_equationWithSolution;
+import com.example.smthing.data.ITable_equationWithSolution;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,5 +1,6 @@
-package com.example.smthing.controllers.equation.solving.classificationsurfacesenum;
+package com.example.smthing.equation.solving.solving.classificationsurfacesenum;
 
+import com.example.smthing.equation.solving.classificationsurfacesenum.ClassifierOfSurfaces;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

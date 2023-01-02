@@ -1,4 +1,4 @@
-package com.example.smthing.controllers.equation.writer;
+package com.example.smthing.equation.writer;
 
 public class WriterConstants {
     public static final String[] XYZ_IN_EQUATION = {"x²", "y²", "z²", "xy", "xz", "yz", "x", "y", "z", " = 0"};

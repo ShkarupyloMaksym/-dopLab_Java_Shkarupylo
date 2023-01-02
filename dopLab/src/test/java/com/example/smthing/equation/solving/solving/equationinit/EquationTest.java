@@ -1,5 +1,6 @@
-package com.example.smthing.controllers.equation.solving.equationinit;
+package com.example.smthing.equation.solving.solving.equationinit;
 
+import com.example.smthing.equation.solving.equationinit.Equation;
 import org.junit.Before;
 import org.junit.Test;
 

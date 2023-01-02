@@ -1,9 +1,9 @@
-package com.example.smthing.controllers.equation.solving;
+package com.example.smthing.equation.solving;
 
-import com.example.smthing.controllers.equation.equationexceptions.EquationIsNotASurfaceException;
-import com.example.smthing.controllers.equation.equationexceptions.EquationNotEnoughCoefsException;
-import com.example.smthing.controllers.equation.solving.classificationsurfacesenum.ClassifierOfSurfaces;
-import com.example.smthing.controllers.equation.solving.equationinit.Equation;
+import com.example.smthing.equation.equationexceptions.EquationIsNotASurfaceException;
+import com.example.smthing.equation.equationexceptions.EquationNotEnoughCoefsException;
+import com.example.smthing.equation.solving.classificationsurfacesenum.ClassifierOfSurfaces;
+import com.example.smthing.equation.solving.equationinit.Equation;
 import org.springframework.ui.Model;
 
 public class DefinerTypeOfSurface {

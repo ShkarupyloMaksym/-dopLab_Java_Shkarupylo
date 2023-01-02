@@ -1,17 +1,17 @@
-package com.example.smthing.controllers.equation;
+package com.example.smthing.equation;
 
-import com.example.smthing.controllers.equation.equationexceptions.EquationIsNotASurfaceException;
-import com.example.smthing.controllers.equation.equationexceptions.EquationNotEnoughCoefsException;
-import com.example.smthing.controllers.equation.equationexceptions.EquationNotNumberException;
-import com.example.smthing.controllers.equation.equationexceptions.EquationNullException;
-import com.example.smthing.controllers.equation.solving.DefinerTypeOfSurface;
+import com.example.smthing.equation.equationexceptions.EquationIsNotASurfaceException;
+import com.example.smthing.equation.equationexceptions.EquationNotEnoughCoefsException;
+import com.example.smthing.equation.equationexceptions.EquationNotNumberException;
+import com.example.smthing.equation.equationexceptions.EquationNullException;
+import com.example.smthing.equation.solving.DefinerTypeOfSurface;
 import org.springframework.ui.Model;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.example.smthing.controllers.equation.writer.WriterConstants.EQUATION_COEFFS_IN_A_TYPE;
-import static com.example.smthing.controllers.equation.writer.WriterConstants.XYZ_IN_EQUATION;
+import static com.example.smthing.equation.writer.WriterConstants.EQUATION_COEFFS_IN_A_TYPE;
+import static com.example.smthing.equation.writer.WriterConstants.XYZ_IN_EQUATION;
 
 public class EquationWithWritingToPage {
     private final String[] coefficientsString;
