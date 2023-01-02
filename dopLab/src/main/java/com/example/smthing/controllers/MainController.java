@@ -17,7 +17,6 @@ public class MainController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model) {
-        System.out.println("Go to the home");
         model.addAttribute("DataEquatations", equationRepo.findAll());
         return "home";
     }
