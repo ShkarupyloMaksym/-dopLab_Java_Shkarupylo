@@ -1,24 +1,16 @@
 package com.example.smthing.equation.solving;
 
 import com.example.smthing.equation.equationexceptions.EquationIsNotASurfaceException;
-import com.example.smthing.equation.equationexceptions.EquationNotEnoughCoefsException;
 import com.example.smthing.equation.solving.classificationsurfacesenum.ClassifierOfSurfaces;
 import com.example.smthing.equation.solving.equationinit.Equation;
-import org.springframework.ui.Model;
 
 public class DefinerTypeOfSurface {
     private final Equation equationToDefine;
     private ClassifierOfSurfaces type;
     private final StringBuilder explanation = new StringBuilder();
 
-    private void checkEquationCoefsLength(double[] equationCoefs) throws EquationNotEnoughCoefsException {
-        if (equationCoefs.length != 10)
-            throw new EquationNotEnoughCoefsException();
-    }
-
-    public DefinerTypeOfSurface(double[] equationCoefs, Model model) throws EquationNotEnoughCoefsException, EquationIsNotASurfaceException {
-        checkEquationCoefsLength(equationCoefs);
-        equationToDefine = new Equation(equationCoefs, model);
+    public DefinerTypeOfSurface(Equation equation){
+        equationToDefine = equation;
     }
 
 

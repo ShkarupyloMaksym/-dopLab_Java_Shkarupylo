@@ -2,6 +2,8 @@ package com.example.smthing.equation.writer;
 
 import org.springframework.ui.Model;
 
+import java.util.Map;
+
 public class DeterminantWriter {
     private final Model equationModel;
 
@@ -9,12 +11,51 @@ public class DeterminantWriter {
     private final String endMatrix = " \\end{vmatrix} \\)";
     double[][] Coefs4;
 
-    public DeterminantWriter(double[][] Coefs4, Model model) {
+    public DeterminantWriter(double[] equationCoefs, Model model){
+        final double[][] coefs4 = new double[4][4];
+        for (int i = 0; i < 3; i++)
+            coefs4[i][i] = equationCoefs[i];
+        coefs4[0][1] = equationCoefs[3] / 2;
+        coefs4[0][2] = equationCoefs[4] / 2;
+        coefs4[1][2] = equationCoefs[5] / 2;
+        coefs4[0][3] = equationCoefs[6] / 2;
+        coefs4[1][3] = equationCoefs[7] / 2;
+        coefs4[2][3] = equationCoefs[8] / 2;
+        coefs4[3][3] = equationCoefs[9];
+
+        for (int i = 0; i < 4; i++)
+            for (int j = 0; j < i; j++)
+                coefs4[i][j] = coefs4[j][i];
+
         equationModel = model;
-        this.Coefs4 = Coefs4;
+        Coefs4 = coefs4;
+    }
+    public void write(Map<String, Double> explain){
+        for (String action: explain.keySet()){
+            switch (action){
+                case "I1":
+                    writeCountI1(explain.get(action));
+                    break;
+                case "I2":
+                    writeCountI2(explain.get(action));
+                    break;
+                case "I3":
+                    writeCountI3(explain.get(action));
+                    break;
+                case "K1":
+                    writeCountK1(explain.get(action));
+                    break;
+                case "K2":
+                    writeCountK2(explain.get(action));
+                    break;
+                case "K4":
+                    writeCountK4(explain.get(action));
+                    break;
+            }
+        }
     }
 
-    public void writeCountI1(double result) {
+    private void writeCountI1(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("I1 = ");
             for (int i = 0; i < 3; i++)
@@ -26,7 +67,7 @@ public class DeterminantWriter {
     }
 
 
-    public void writeCountI2(double result) {
+    private void writeCountI2(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("I2 = ");
             stringBuilder.append(startMatrix);
@@ -45,7 +86,7 @@ public class DeterminantWriter {
         }
     }
 
-    public void writeCountI3(double result) {
+    private void writeCountI3(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("I3 = ");
             stringBuilder.append(startMatrix);
@@ -63,7 +104,7 @@ public class DeterminantWriter {
 
     }
 
-    public void writeCountK4(double result) {
+    private void writeCountK4(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("K4 = ");
             stringBuilder.append(startMatrix);
@@ -80,7 +121,7 @@ public class DeterminantWriter {
         }
     }
 
-    public void writeCountK2(double result) {
+    private void writeCountK2(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("K2 = ");
             for (int i = 0; i < 3; i++) {
@@ -105,7 +146,7 @@ public class DeterminantWriter {
         }
     }
 
-    public void writeCountK1(double result) {
+    private void writeCountK1(double result) {
         if (equationModel != null) {
             StringBuilder stringBuilder = new StringBuilder("K1 = ");
             for (int i = 0; i < 3; i++) {

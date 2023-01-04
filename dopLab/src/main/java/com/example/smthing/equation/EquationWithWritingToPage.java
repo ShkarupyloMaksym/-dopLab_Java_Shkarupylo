@@ -5,6 +5,8 @@ import com.example.smthing.equation.equationexceptions.EquationNotEnoughCoefsExc
 import com.example.smthing.equation.equationexceptions.EquationNotNumberException;
 import com.example.smthing.equation.equationexceptions.EquationNullException;
 import com.example.smthing.equation.solving.DefinerTypeOfSurface;
+import com.example.smthing.equation.solving.equationinit.Equation;
+import com.example.smthing.equation.writer.DeterminantWriter;
 import org.springframework.ui.Model;
 
 import java.util.Arrays;
@@ -24,6 +26,11 @@ public class EquationWithWritingToPage {
             if (number != 0)
                 return false;
         return true;
+    }
+
+    private void checkEquationCoefsLength(double[] equationCoefs) throws EquationNotEnoughCoefsException {
+        if (equationCoefs.length != 10)
+            throw new EquationNotEnoughCoefsException();
     }
 
     private void makeStringCoeffNotEmpty() {
@@ -74,9 +81,14 @@ public class EquationWithWritingToPage {
     }
 
     public String addAnswer() throws EquationIsNotASurfaceException, EquationNotEnoughCoefsException {
-        DefinerTypeOfSurface definerTypeOfSurface = new DefinerTypeOfSurface(coefficientsDouble, pageModel);
+        checkEquationCoefsLength(coefficientsDouble);
+        Equation equation = new Equation(coefficientsDouble);
+
+        DefinerTypeOfSurface definerTypeOfSurface = new DefinerTypeOfSurface(equation);
         pageModel.addAttribute("typeOfSurface", definerTypeOfSurface.getType().getUkrName());
         pageModel.addAttribute("SmallSolution", definerTypeOfSurface.getExplanation());
+        DeterminantWriter determinantWriter = new DeterminantWriter(coefficientsDouble, pageModel);
+        determinantWriter.write(equation.getUsedDeterminants());
         return definerTypeOfSurface.getType().name();
     }
 }
