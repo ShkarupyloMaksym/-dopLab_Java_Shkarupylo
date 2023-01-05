@@ -4,6 +4,7 @@ package com.example.smthing.controllers;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import com.example.smthing.SmthingApplicationTests;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.junit.Test;
@@ -14,7 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = SmthingApplicationTests.class)
 @AutoConfigureMockMvc
 public class MainControllerTest {
     @Autowired

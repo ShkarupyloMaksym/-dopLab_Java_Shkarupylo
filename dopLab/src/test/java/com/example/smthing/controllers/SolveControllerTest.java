@@ -1,4 +1,5 @@
 package com.example.smthing.controllers;
+import com.example.smthing.SmthingApplicationTests;
 import com.example.smthing.equation.equationexceptions.EquationNotNumberException;
 import com.example.smthing.equation.equationexceptions.EquationNullException;
 import org.junit.Test;
@@ -26,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = SmthingApplicationTests.class)
 @AutoConfigureMockMvc
 public class SolveControllerTest {
     @Autowired
